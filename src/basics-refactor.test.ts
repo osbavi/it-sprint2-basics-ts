@@ -61,31 +61,26 @@ describe("Problema de propietats opcionals", () => {
   });
 });
 
-// /*
-// Repte 4:
-// Has d'esbrinar com marcar el paràmetre 'last' com a opcional.
-// */
+describe("Problema de paràmetres opcionals", () => {
+  const getName = (first: string, last?: string) => {
+    if (last !== undefined) {
+      return `${first} ${last}`;
+    }
+    return first;
+  };
 
-// describe("Problema de paràmetres opcionals", () => {
-//   const getName = (first: string, last: string) => {
-//     if (last !== undefined) {
-//       return `${first} ${last}`;
-//     }
-//     return first;
-//   };
+  it("Ha de funcionar només amb el nom", () => {
+    const name = getName("Jen");
 
-//   it("Ha de funcionar només amb el nom", () => {
-//     const name = getName("Jen");
+    expect(name).toEqual("Jen");
+  });
 
-//     expect(name).toEqual("Jen");
-//   });
+  it("Ha de funcionar amb el nom i el cognom", () => {
+    const name = getName("Jen", "Simmons");
 
-//   it("Ha de funcionar amb el nom i el cognom", () => {
-//     const name = getName("Jen", "Simmons");
-
-//     expect(name).toEqual("Jen Simmons");
-//   });
-// });
+    expect(name).toEqual("Jen Simmons");
+  });
+});
 
 // /*
 // Repte 5:
