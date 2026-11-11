@@ -157,43 +157,29 @@ describe("Transformació: obtenir el tipus dels valors d'un objecte amb as const
   ];
 });
 
-// /*
-// Repte 9:
-// Dona un exemple de terminologia: union, discriminated union i enum.
-// */
-// describe("Transformació: terminologia de tipus", () => {
-//   /**
-//    * És important entendre la terminologia sobre unions:
-//    *
-//    * Una de les declaracions de tipus següents és una union.
-//    * Una de les declaracions de tipus següents és una discriminated union.
-//    * Una de les declaracions de tipus següents és un enum.
-//    *
-//    * Quina és quina?
-//    */
+describe("Transformació: terminologia de tipus", () => {
+  type A =
+    | {
+        type: "a";
+        a: string;
+      }
+    | {
+        type: "b";
+        b: string;
+      }
+    | {
+        type: "c";
+        c: string;
+      };
 
-//   type A =
-//     | {
-//         type: "a";
-//         a: string;
-//       }
-//     | {
-//         type: "b";
-//         b: string;
-//       }
-//     | {
-//         type: "c";
-//         c: string;
-//       };
+  type B = "a" | "b" | "c";
 
-//   type B = "a" | "b" | "c";
-
-//   enum C {
-//     A = "a",
-//     B = "b",
-//     C = "c",
-//   }
-// });
+  enum C {
+    A = "a",
+    B = "b",
+    C = "c",
+  }
+});
 
 // /*
 // Repte 10:
