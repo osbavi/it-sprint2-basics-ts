@@ -390,29 +390,23 @@ describe("Problema d'Omit i Pick", () => {
   type tests = [Expect<Equal<MyType, { firstName: string; lastName: string }>>];
 });
 
-// /*
-// Repte 17:
-// La funció 'onFocusChange' is actualment 'unknown'. Visita la documentació de TypeScript i esbrina el tipus apropiat per la funció.
-// */
+describe("Problema de tipus de funció", () => {
+  const addListener = (onFocusChange: (focused: boolean) => void) => {
+    window.addEventListener("focus", () => {
+      onFocusChange(true);
+    });
 
-// describe("Problema de tipus de funció", () => {
+    window.addEventListener("blur", () => {
+      onFocusChange(false);
+    });
+  };
 
-//   const addListener = (onFocusChange: unknown) => {
-//     window.addEventListener("focus", () => {
-//       onFocusChange(true);
-//     });
+  addListener((isFocused) => {
+    console.log({ isFocused });
 
-//     window.addEventListener("blur", () => {
-//       onFocusChange(false);
-//     });
-//   };
-
-//   addListener((isFocused) => {
-//     console.log({ isFocused });
-
-//     type tests = [Expect<Equal<typeof isFocused, boolean>>];
-//   });
-// });
+    type tests = [Expect<Equal<typeof isFocused, boolean>>];
+  });
+});
 
 // /*
 // Repte 18:
