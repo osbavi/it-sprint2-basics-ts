@@ -13,7 +13,7 @@
     "vitest": "^1.6.1"
   },
   "scripts": {
-    "test": "npm run test:types && vitest --typecheck",
+    "test": "pnpm run test:types && vitest --typecheck",
     "test:types": "tsc --noEmit"
   }
 }
