@@ -60,27 +60,23 @@ describe("Transformació: obtenir el tipus de retorn d'una funció asíncrona", 
   ];
 });
 
-// /*
-// Repte 4:
-// Obté les claus d'un objecte com a tipus d'unió.
-// */
-// describe("Transformació: obtenir les claus d'un objecte", () => {
-//   const testingFrameworks = {
-//     vitest: {
-//       label: "Vitest",
-//     },
-//     jest: {
-//       label: "Jest",
-//     },
-//     mocha: {
-//       label: "Mocha",
-//     },
-//   };
+describe("Transformació: obtenir les claus d'un objecte", () => {
+  const testingFrameworks = {
+    vitest: {
+      label: "Vitest",
+    },
+    jest: {
+      label: "Jest",
+    },
+    mocha: {
+      label: "Mocha",
+    },
+  };
 
-//   type TestingFramework = unknown;
+  type TestingFramework = keyof typeof testingFrameworks;
 
-//   type tests = [Expect<Equal<TestingFramework, "vitest" | "jest" | "mocha">>];
-// });
+  type tests = [Expect<Equal<TestingFramework, "vitest" | "jest" | "mocha">>];
+});
 
 // /*
 // Repte 5:
