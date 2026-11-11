@@ -339,49 +339,44 @@ describe("Problema d'herència amb extends", () => {
   ];
 });
 
-// /*
-// Repte 15:
-// Actualitza el tipus de retorn de la funció perquè sigui 'User i { posts: Post[] }'.
-// */
+describe("Problema d'intersecció de tipus", () => {
+  interface User {
+    id: string;
+    firstName: string;
+    lastName: string;
+  }
 
-// describe("Problema d'intersecció de tipus", () => {
-//   interface User {
-//     id: string;
-//     firstName: string;
-//     lastName: string;
-//   }
+  interface Post {
+    id: string;
+    title: string;
+    body: string;
+  }
 
-//   interface Post {
-//     id: string;
-//     title: string;
-//     body: string;
-//   }
+  const getDefaultUserAndPosts = (): User & { posts: Post[] } => {
+    return {
+      id: "1",
+      firstName: "Jen",
+      lastName: "Simmons",
+      posts: [
+        {
+          id: "1",
+          title: "Com vaig aprendre a tocar la guitarra",
+          body: "Va ser un acord perfecte des del principi",
+        },
+      ],
+    };
+  };
 
-//   const getDefaultUserAndPosts = (): unknown => {
-//     return {
-//       id: "1",
-//       firstName: "Jen",
-//       lastName: "Simmons",
-//       posts: [
-//         {
-//           id: "1",
-//           title: "Com vaig aprendre a tocar la guitarra",
-//           body: "Va ser un acord perfecte des del principi",
-//         },
-//       ],
-//     };
-//   };
+  const userAndPosts = getDefaultUserAndPosts();
 
-//   const userAndPosts = getDefaultUserAndPosts();
+  console.log(userAndPosts.posts[0]);
 
-//   console.log(userAndPosts.posts[0]);
-//
-//   it("Ha de retornar usuari amb posts", () => {
-//    const userAndPosts = getDefaultUserAndPosts();
-//
-//    expect(userAndPosts.posts[0].id).toBeTypeOf("string");
-//   });
-// });
+  it("Ha de retornar usuari amb posts", () => {
+    const userAndPosts = getDefaultUserAndPosts();
+
+    expect(userAndPosts.posts[0].id).toBeTypeOf("string");
+  });
+});
 
 // /*
 // Repte 16:
