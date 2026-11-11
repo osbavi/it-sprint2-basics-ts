@@ -44,25 +44,21 @@ describe("Transformació: obtenir els paràmetres d'una funció", () => {
   ];
 });
 
-// /*
-// Repte 3:
-// Utilitza ReturnType per obtenir el tipus de retorn de getUser.
-// */
-// describe("Transformació: obtenir el tipus de retorn d'una funció asíncrona", () => {
-//   const getUser = () => {
-//     return Promise.resolve({
-//       id: "123",
-//       name: "John",
-//       email: "john@example.com",
-//     });
-//   };
+describe("Transformació: obtenir el tipus de retorn d'una funció asíncrona", () => {
+  const getUser = () => {
+    return Promise.resolve({
+      id: "123",
+      name: "John",
+      email: "john@example.com",
+    });
+  };
 
-//   type ReturnValue = ReturnType<typeof getUser>;
+  type ReturnValue = Awaited<ReturnType<typeof getUser>>;
 
-//   type tests = [
-//     Expect<Equal<ReturnValue, { id: string; name: string; email: string }>>,
-//   ];
-// });
+  type tests = [
+    Expect<Equal<ReturnValue, { id: string; name: string; email: string }>>,
+  ];
+});
 
 // /*
 // Repte 4:
