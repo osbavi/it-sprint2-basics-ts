@@ -408,48 +408,41 @@ describe("Problema de tipus de funció", () => {
   });
 });
 
-// /*
-// Repte 18:
-// Tipa les funcions perquè els errors desapareguin.
-// Consulta la sintaxi de tipatge de funcions i Promise que hem vist anteriorment per ajudar-te.
-// */
+describe("Problema de tipus de funció amb promeses", () => {
+  interface User {
+    id: string;
+    firstName: string;
+    lastName: string;
+  }
 
-// describe("Problema de tipus de funció amb promeses", () => {
+  const createThenGetUser = async (
+    createUser: () => Promise<string>,
+    getUser: (id: string) => Promise<User>,
+  ): Promise<User> => {
+    const userId: string = await createUser();
 
-//     interface User {
-//         id: string;
-//         firstName: string;
-//         lastName: string;
-//       }
+    const user = await getUser(userId);
 
-//       const createThenGetUser = async (
-//         createUser: unknown,
-//         getUser: unknown,
-//       ): Promise<User> => {
-//         const userId: string = await createUser();
+    return user;
+  };
 
-//         const user = await getUser(userId);
+  it("Ha de crear l'usuari i després obtenir-lo", async () => {
+    const user = await createThenGetUser(
+      async () => "123",
+      async (id) => ({
+        id,
+        firstName: "Jen",
+        lastName: "Simmons",
+      }),
+    );
 
-//         return user;
-//       };
-
-//   it("Ha de crear l'usuari i després obtenir-lo", async () => {
-//     const user = await createThenGetUser(
-//       async () => "123",
-//       async (id) => ({
-//         id,
-//         firstName: "Jen",
-//         lastName: "Simmons",
-//       })
-//     );
-
-//     expect(user).toEqual({
-//       id: "123",
-//       firstName: "Jen",
-//       lastName: "Simmons",
-//     });
-//   });
-// });
+    expect(user).toEqual({
+      id: "123",
+      firstName: "Jen",
+      lastName: "Simmons",
+    });
+  });
+});
 
 // /*
 // Repte:
