@@ -123,41 +123,41 @@ describe("Problema d'unions", () => {
   };
 });
 
-// /*
-// Repte 7:
-// Has de solucionar aquest error de tipus esbrinant com representar arrays.
-// */
-// describe("Problema d'arrays", () => {
-//   interface User {
-//     id: number;
-//     firstName: string;
-//     lastName: string;
-//     role: "admin" | "user" | "super-admin";
-//     posts: Post;
-//   }
+/*
+Repte 7:
+Has de solucionar aquest error de tipus esbrinant com representar arrays.
+*/
+describe("Problema d'arrays", () => {
+  interface User {
+    id: number;
+    firstName: string;
+    lastName: string;
+    role: "admin" | "user" | "super-admin";
+    posts: Post[];
+  }
 
-//   interface Post {
-//     id: number;
-//     title: string;
-//   }
+  interface Post {
+    id: number;
+    title: string;
+  }
 
-//   const defaultUser: User = {
-//     id: 1,
-//     firstName: "Jen",
-//     lastName: "Simmons",
-//     role: "admin",
-//     posts: [
-//       {
-//         id: 1,
-//         title: "Com menjo tant de formatge",
-//       },
-//       {
-//         id: 2,
-//         title: "Per què no menjo més verdures",
-//       },
-//     ],
-//   };
-// });
+  const defaultUser: User = {
+    id: 1,
+    firstName: "Jen",
+    lastName: "Simmons",
+    role: "admin",
+    posts: [
+      {
+        id: 1,
+        title: "Com menjo tant de formatge",
+      },
+      {
+        id: 2,
+        title: "Per què no menjo més verdures",
+      },
+    ],
+  };
+});
 
 // /*
 // Repte 8:
