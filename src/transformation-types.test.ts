@@ -181,29 +181,25 @@ describe("Transformació: terminologia de tipus", () => {
   }
 });
 
-// /*
-// Repte 10:
-// Extreu un tipus d'un element concret d'una discriminated union.
-// */
-// describe("Transformació: extract d'una discriminated union", () => {
-//   type Event =
-//     | {
-//         type: "click";
-//         event: MouseEvent;
-//       }
-//     | {
-//         type: "focus";
-//         event: FocusEvent;
-//       }
-//     | {
-//         type: "keydown";
-//         event: KeyboardEvent;
-//       };
+describe("Transformació: extract d'una discriminated union", () => {
+  type Event =
+    | {
+        type: "click";
+        event: MouseEvent;
+      }
+    | {
+        type: "focus";
+        event: FocusEvent;
+      }
+    | {
+        type: "keydown";
+        event: KeyboardEvent;
+      };
 
-//   type ClickEvent = unknown;
+  type ClickEvent = Extract<Event, { type: "click" }>;
 
-//   type tests = [Expect<Equal<ClickEvent, { type: "click"; event: MouseEvent }>>];
-// });
+  type tests = [Expect<Equal<ClickEvent, { type: "click"; event: MouseEvent }>>];
+});
 
 // /*
 // Repte 11:
