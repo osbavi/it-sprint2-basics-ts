@@ -295,27 +295,23 @@ describe("Problema de filtratge amb typeof", () => {
   });
 });
 
-// /*
-// Repte 13:
-// Has de convertir el tipus 'unknown' en un tipus on sàpigues què és.
-// Pista: hi ha diverses maneres de resoldre aquest repte, prova diferents opcions!
-// */
+describe("Problema de blocs catch", () => {
+  const tryCatchDemo = (state: "fail" | "succeed") => {
+    try {
+      if (state === "fail") {
+        throw new Error("Failure!");
+      }
+    } catch (e) {
+      if (e instanceof Error) {
+        return e.message;
+      }
+    }
+  };
 
-// describe("Problema de blocs catch", () => {
-//   const tryCatchDemo = (state: "fail" | "succeed") => {
-//     try {
-//       if (state === "fail") {
-//         throw new Error("Failure!");
-//       }
-//     } catch (e) {
-//       return e.message;
-//     }
-//   };
-
-//   it("Ha de retornar el missatge quan falla", () => {
-//     expect(tryCatchDemo("fail")).toEqual("Failure!");
-//   });
-// });
+  it("Ha de retornar el missatge quan falla", () => {
+    expect(tryCatchDemo("fail")).toEqual("Failure!");
+  });
+});
 
 // /*
 // Repte 14:
