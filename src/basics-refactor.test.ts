@@ -241,49 +241,42 @@ describe("Problema de Set", () => {
   });
 });
 
-// /*
-// Repte 11:
-// Consulta la documentació de TypeScript i esbrina què pot estar causant aquest problema.
-// Actualitza cache perquè estigui tipat correctament i els errors desapareguin.
-// Pista: Consulta com representar objectes amb claus de tipus string i valors tipats.
-// */
+describe("Problema de Record", () => {
+  const createCache = () => {
+    let cache: Record<string, string> = {};
 
-// describe("Problema de Record", () => {
-//   const createCache = () => {
-//     const cache = {};
+    const add = (id: string, value: string) => {
+      cache[id] = value;
+    };
 
-//     const add = (id: string, value: string) => {
-//       cache[id] = value;
-//     };
+    const remove = (id: string) => {
+      delete cache[id];
+    };
 
-//     const remove = (id: string) => {
-//       delete cache[id];
-//     };
+    return {
+      cache,
+      add,
+      remove,
+    };
+  };
 
-//     return {
-//       cache,
-//       add,
-//       remove,
-//     };
-//   };
+  it("Ha d'afegir valors a la memòria cache", () => {
+    const cache = createCache();
 
-//   it("Ha d'afegir valors a la memòria cache", () => {
-//     const cache = createCache();
+    cache.add("123", "Jen");
 
-//     cache.add("123", "Jen");
+    expect(cache.cache["123"]).toEqual("Jen");
+  });
 
-//     expect(cache.cache["123"]).toEqual("Jen");
-//   });
+  it("Ha d'eliminar valors de la memòria cache", () => {
+    const cache = createCache();
 
-//   it("Ha d'eliminar valors de la memòria cache", () => {
-//     const cache = createCache();
+    cache.add("123", "Jen");
+    cache.remove("123");
 
-//     cache.add("123", "Jen");
-//     cache.remove("123");
-
-//     expect(cache.cache["123"]).toEqual(undefined);
-//   });
-// });
+    expect(cache.cache["123"]).toEqual(undefined);
+  });
+});
 
 // /*
 // Repte 12:
