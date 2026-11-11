@@ -1,13 +1,6 @@
 import { assertType, describe, expect, expectTypeOf, it } from "vitest";
 import { Equal, Expect } from "./helpers/type-utils";
 
-/*
-Repte 1:
-Llegeix l'article:
- ["Migrating from JavaScript" a la documentació de TypeScript](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)
- i mira si pots trobar com solucionar aquests errors de TypeScript.
-*/
-
 describe("Problema de nombres", () => {
   it("Ha de sumar els dos nombres", () => {
     const addTwoNumbers = (a: number, b: number) => {
@@ -18,33 +11,29 @@ describe("Problema de nombres", () => {
   });
 });
 
-/*
-Repte 2:
-Descobreix com tipar params com un objecte amb una clau first que sigui un nombre i una clau second que també sigui un nombre.
-*/
+describe("Problema de paràmetre objecte", () => {
+  it("Ha de sumar els dos nombres", () => {
+    const addTwoNumbers = (params: { first: number; second: number }) => {
+      return params.first + params.second;
+    };
+    expect(
+      addTwoNumbers({
+        first: 2,
+        second: 4,
+      }),
+    ).toEqual(6);
 
-// describe("Problema de paràmetre objecte", () => {
-//   it("Ha de sumar els dos nombres", () => {
-//     const addTwoNumbers = (params:{first:number,second:number}) => {
-//       return params.first + params.second;
-//     };
-//     expect(
-//       addTwoNumbers({
-//         first: 2,
-//         second: 4,
-//       })
-//     ).toEqual(6);
-
-//     expect(
-//       addTwoNumbers({
-//         first: 10,
-//         second: 20,
-//       })
-//     ).toEqual(30);
-//   });
-//   expectTypeOf(addTwoNumbers).parameter(0).toEqualTypeOf<{ first: number; second: number }>();
-
-// });
+    expect(
+      addTwoNumbers({
+        first: 10,
+        second: 20,
+      }),
+    ).toEqual(30);
+    expectTypeOf(addTwoNumbers)
+      .parameter(0)
+      .toEqualTypeOf<{ first: number; second: number }>();
+  });
+});
 
 // /*
 // Repte 3:
