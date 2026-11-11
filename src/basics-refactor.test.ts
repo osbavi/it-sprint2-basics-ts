@@ -35,36 +35,31 @@ describe("Problema de paràmetre objecte", () => {
   });
 });
 
-// /*
-// Repte 3:
-// Has d'esbrinar com tipar l'objecte perquè 'last' sigui opcional.
-// */
+describe("Problema de propietats opcionals", () => {
+  const getName = (params: { first: string; last?: string }) => {
+    if (params.last !== undefined) {
+      return `${params.first} ${params.last}`;
+    }
+    return params.first;
+  };
 
-// describe("Problema de propietats opcionals", () => {
-//   const getName = (params: { first: string; last: string }) => {
-//     if (params.last !== undefined) {
-//       return `${params.first} ${params.last}`;
-//     }
-//     return params.first;
-//   };
+  it("Ha de funcionar només amb el nom", () => {
+    const name = getName({
+      first: "Jen",
+    });
 
-//   it("Ha de funcionar només amb el nom", () => {
-//     const name = getName({
-//       first: "Jen",
-//     });
+    expect(name).toEqual("Jen");
+  });
 
-//     expect(name).toEqual("Jen");
-//   });
+  it("Ha de funcionar amb el nom i el cognom", () => {
+    const name = getName({
+      first: "Jen",
+      last: "Simmons",
+    });
 
-//   it("Ha de funcionar amb el nom i el cognom", () => {
-//     const name = getName({
-//       first: "Jen",
-//       last: "Simmons",
-//     });
-
-//     expect(name).toEqual("Jen Simmons");
-//   });
-// });
+    expect(name).toEqual("Jen Simmons");
+  });
+});
 
 // /*
 // Repte 4:
