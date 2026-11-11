@@ -1,23 +1,15 @@
-// import { describe, expect, it } from "vitest";
-// import { Equal, Expect } from "./helpers/type-utils";
+import { describe, expect, it } from "vitest";
+import { Equal, Expect } from "./helpers/type-utils";
 
-// /*
-// Repte 1:
-// Llegeix la documentació de TypeScript sobre Utility Types i esbrina com utilitzar ReturnType per extreure el tipus de retorn de myFunc.
-// Pista: pots utilitzar typeof per obtenir el tipus d'una variable o funció.
-// */
-// describe("Transformació: obtenir el tipus de retorn d'una funció", () => {
-//   const myFunc = () => {
-//     return "hello";
-//   };
+describe("Transformació: obtenir el tipus de retorn d'una funció", () => {
+  const myFunc = () => {
+    return "hello";
+  };
 
-//   /**
-//    * Com podem extreure MyFuncReturn a partir de myFunc?
-//   //  */
-//   type MyFuncReturn = unknown;
+  type MyFuncReturn = ReturnType<typeof myFunc>;
 
-//   type tests = [Expect<Equal<MyFuncReturn, string>>];
-// });
+  type tests = [Expect<Equal<MyFuncReturn, string>>];
+});
 
 // /*
 // Repte 2:
@@ -306,9 +298,9 @@
 //   type tests = [Expect<Equal<EventType, "click" | "focus" | "keydown">>];
 // });
 
-// /* 
+// /*
 // Repte 13:
-// Utilitza l'array per resoldre els dos tipus: 
+// Utilitza l'array per resoldre els dos tipus:
 // - AppleOrBanana, que ha de ser una unió dels dos primers valors de l'array ("apple" | "banana").
 // - Fruit, que ha de ser una unió de tots els valors de l'array ("apple" | "banana" | "orange").
 
@@ -328,4 +320,3 @@
 //   Expect<Equal<Fruit, "apple" | "banana" | "orange">>,
 // ];
 // });
-
