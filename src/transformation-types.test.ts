@@ -140,25 +140,22 @@ describe("Transformació: obtenir el tipus dels valors d'un array", () => {
   ];
 });
 
-// /*
-// Repte 8:
-// Utilitza indexed access types per obtenir el tipus dels valors d'un objecte amb as const.
-// */
-// describe("Transformació: obtenir el tipus dels valors d'un objecte amb as const", () => {
-//   const frontendToBackendEnumMap = {
-//     singleModule: "SINGLE_MODULE",
-//     multiModule: "MULTI_MODULE",
-//     sharedModule: "SHARED_MODULE",
-//   } as const;
+describe("Transformació: obtenir el tipus dels valors d'un objecte amb as const", () => {
+  const frontendToBackendEnumMap = {
+    singleModule: "SINGLE_MODULE",
+    multiModule: "MULTI_MODULE",
+    sharedModule: "SHARED_MODULE",
+  } as const;
 
-//   type BackendModuleEnum = unknown;
+  type BackendModuleEnum =
+    (typeof frontendToBackendEnumMap)[keyof typeof frontendToBackendEnumMap];
 
-//   type tests = [
-//     Expect<
-//       Equal<BackendModuleEnum, "SINGLE_MODULE" | "MULTI_MODULE" | "SHARED_MODULE">
-//     >,
-//   ];
-// });
+  type tests = [
+    Expect<
+      Equal<BackendModuleEnum, "SINGLE_MODULE" | "MULTI_MODULE" | "SHARED_MODULE">
+    >,
+  ];
+});
 
 // /*
 // Repte 9:
