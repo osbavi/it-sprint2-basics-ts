@@ -10,7 +10,7 @@ Llegeix l'article:
 
 describe("Problema de nombres", () => {
   it("Ha de sumar els dos nombres", () => {
-    const addTwoNumbers = (a, b) => {
+    const addTwoNumbers = (a: number, b: number) => {
       return a + b;
     };
     expectTypeOf(addTwoNumbers).parameter(0).toEqualTypeOf<number>();
@@ -43,7 +43,6 @@ Descobreix com tipar params com un objecte amb una clau first que sigui un nombr
 //     ).toEqual(30);
 //   });
 //   expectTypeOf(addTwoNumbers).parameter(0).toEqualTypeOf<{ first: number; second: number }>();
-
 
 // });
 
@@ -451,7 +450,7 @@ Descobreix com tipar params com un objecte amb una clau first que sigui un nombr
 //   const userAndPosts = getDefaultUserAndPosts();
 
 //   console.log(userAndPosts.posts[0]);
-//   
+//
 //   it("Ha de retornar usuari amb posts", () => {
 //    const userAndPosts = getDefaultUserAndPosts();
 //
@@ -520,18 +519,17 @@ Descobreix com tipar params com un objecte amb una clau first que sigui un nombr
 //         firstName: string;
 //         lastName: string;
 //       }
-      
+
 //       const createThenGetUser = async (
 //         createUser: unknown,
 //         getUser: unknown,
 //       ): Promise<User> => {
 //         const userId: string = await createUser();
-      
+
 //         const user = await getUser(userId);
-      
+
 //         return user;
 //       };
-      
 
 //   it("Ha de crear l'usuari i després obtenir-lo", async () => {
 //     const user = await createThenGetUser(
@@ -558,4 +556,3 @@ Descobreix com tipar params com un objecte amb una clau first que sigui un nombr
 // type tests = [Expect<Equal<MyFuncReturn, string>>];
 // Pista: pots utilitzar typeof per obtenir el tipus d'una variable o funció.
 // */
-
