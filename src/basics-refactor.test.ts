@@ -278,23 +278,22 @@ describe("Problema de Record", () => {
   });
 });
 
-// /*
-// Repte 12:
-// Escriu la funció perquè els tests passin.
-// Pista: utilitza typeof per diferenciar entre nombre i objecte.
-// */
+describe("Problema de filtratge amb typeof", () => {
+  const coerceAmount = (amount: number | { amount: number }) => {
+    if (typeof amount === "number") {
+      return amount;
+    }
+    return amount.amount;
+  };
 
-// describe("Problema de filtratge amb typeof", () => {
-//   const coerceAmount = (amount: number | { amount: number }) => {};
+  it("Ha de retornar l'import quan es passa un objecte", () => {
+    expect(coerceAmount({ amount: 20 })).toEqual(20);
+  });
 
-//   it("Ha de retornar l'import quan es passa un objecte", () => {
-//     expect(coerceAmount({ amount: 20 })).toEqual(20);
-//   });
-
-//   it("Ha de retornar l'import quan es passa un nombre", () => {
-//     expect(coerceAmount(20)).toEqual(20);
-//   });
-// });
+  it("Ha de retornar l'import quan es passa un nombre", () => {
+    expect(coerceAmount(20)).toEqual(20);
+  });
+});
 
 // /*
 // Repte 13:
