@@ -123,10 +123,6 @@ describe("Problema d'unions", () => {
   };
 });
 
-/*
-Repte 7:
-Has de solucionar aquest error de tipus esbrinant com representar arrays.
-*/
 describe("Problema d'arrays", () => {
   interface User {
     id: number;
@@ -196,38 +192,31 @@ describe("Problema d'anotacions de tipus de retorn de funció", () => {
   });
 });
 
-// /*
-// Repte 9:
-// Has d'esbrinar com actualitzar l'anotació del tipus de retorn perquè TypeScript estigui satisfet.
-// */
+describe("Problema de promeses", () => {
+  interface LukeSkywalker {
+    name: string;
+    height: string;
+    mass: string;
+    hair_color: string;
+    skin_color: string;
+    eye_color: string;
+    birth_year: string;
+    gender: string;
+  }
 
-// describe("Problema de promeses", () => {
-//   interface LukeSkywalker {
-//     name: string;
-//     height: string;
-//     mass: string;
-//     hair_color: string;
-//     skin_color: string;
-//     eye_color: string;
-//     birth_year: string;
-//     gender: string;
-//   }
+  const fetchLukeSkywalker = async (): Promise<LukeSkywalker> => {
+    const data = await fetch("https://swapi.py4e.com/api/people/1").then((res) => {
+      return res.json();
+    });
 
-//   const fetchLukeSkywalker = async (): LukeSkywalker => {
-//     const data = await fetch("https://swapi.py4e.com/api/people/1").then(
-//       (res) => {
-//         return res.json();
-//       }
-//     );
+    return data;
+  };
+  it("ha de retornar una promesa", async () => {
+    const result = fetchLukeSkywalker();
 
-//     return data;
-//   };
-//   it("ha de retornar una promesa", async () => {
-//    const result = fetchLukeSkywalker();
-
-//    expect(result).toBeInstanceOf(Promise);
-//   });
-// });
+    expect(result).toBeInstanceOf(Promise);
+  });
+});
 
 // /*
 // Repte 10:
